@@ -1,0 +1,136 @@
+:root {
+    --bg-color: #f4f6f9;
+    --card-color: #ffffff;
+    --primary-color: #007bff;
+    --highlight-color: #ffeb3b; /* Yellow background like your image */
+    --text-color: #333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px; /* Mobile responsive view */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+header p {
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: #666;
+    font-weight: bold;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.back-btn {
+    background: none;
+    color: var(--primary-color);
+    padding: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#results-list {
+    list-style: none;
+    padding: 0;
+}
+
+#results-list li {
+    background: var(--card-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: pointer;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* SPATIAL GRID STYLING */
+.shelf-container {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.shelf-label {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.shelf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Left and Right split matching =1.jpg */
+    gap: 15px;
+}
+
+.slot {
+    background: #555;
+    color: white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Target Yellow Highlight with pulse animation */
+.slot.active-target {
+    background-color: var(--highlight-color);
+    color: #000;
+    box-shadow: 0 0 15px var(--highlight-color);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.97); }
+    100% { transform: scale(1); }
+}
