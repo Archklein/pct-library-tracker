@@ -3,6 +3,18 @@
  * Complete Data Integrity Model for entries #1 through #354
  */
 
+// 1. Detect which shelf parameter is active (?shelf=1 or ?shelf=2)
+const urlParams = new URLSearchParams(window.location.search);
+const currentShelf = urlParams.get('shelf') || '1'; // Defaults to 1 if no parameter exists
+
+// 2. Dynamically update the header text on the page
+window.addEventListener('DOMContentLoaded', () => {
+    const shelfTitle = document.getElementById('shelf-title');
+    if (shelfTitle) {
+        shelfTitle.textContent = `Shelf ${currentShelf}`;
+    }
+});
+
 // Core Range Structural Boundaries Specified by User Mapping
 const ROW_BOUNDARIES = [
     { row: 1, start: 1, end: 60 },
@@ -26,7 +38,7 @@ function locateRowNumber(indexId) {
 }
 
 // Complete Inventory Mapped Array Matrix 
-const baseInventoryData = {
+const shelf1Data = {
     // ==========================================
     // ROW 1: Books #1 to #60 (Psychology, Humanities, Sociology)
     // ==========================================
@@ -413,6 +425,17 @@ const baseInventoryData = {
     353: { title: "Contemporary Philippine Economic History", author: "Gerardo P. Sicat / 2005", accession: "1353" },
     354: { title: "Time Travel: A Glimpse to Philippine History", author: "History Research Group / 2015", accession: "2949" }
 };
+
+// 3. Shelf 2 placeholder data (1 book placeholder per row)
+const shelf2Data = {
+    1: { title: "Shelf 2 - Row 1 Book Placeholder", author: "Pending Author / 2026", accession: "0001" },
+    2: { title: "Shelf 2 - Row 2 Book Placeholder", author: "Pending Author / 2026", accession: "0002" },
+    3: { title: "Shelf 2 - Row 3 Book Placeholder", author: "Pending Author / 2026", accession: "0003" },
+    4: { title: "Shelf 2 - Row 4 Book Placeholder", author: "Pending Author / 2026", accession: "0004" }
+};
+
+// 4. Point the application's engine to the correct shelf configuration
+const baseInventoryData = currentShelf === '2' ? shelf2Data : shelf1Data;
 
 // Auto-Compiler Pipeline Engine to safely seed rows 2 through 353 cleanly 
 const booksDatabase = [];
