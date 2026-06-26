@@ -3,48 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCT Library Tracker</title>
+    <title>Library Locator - Shelf 1</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
-        <header>
-            <h1>PCT Library Locator</h1>
-            <p id="shelf-indicator">Scanning Shelf...</p>
+        <header class="main-header">
+            <h1>Library Book Locator</h1>
+            <p class="subtitle">Shelf 1 Interactive Book Tracker</p>
         </header>
 
-        <section id="search-page" class="view-section">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Enter book title...">
-                <button id="search-btn">Search</button>
+        <div class="search-section">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Type book title, number, or accession...">
+                <button id="clearBtn" class="clear-btn hidden">✕</button>
             </div>
-        </section>
+        </div>
 
-        <section id="results-page" class="view-section hidden">
-            <button class="back-btn" id="back-to-search">← Back to Search</button>
-            <h3>Search Results:</h3>
-            <ul id="results-list"></ul>
-        </section>
-
-        <section id="map-page" class="view-section hidden">
-            <button class="back-btn" id="back-to-results">← Back to Results</button>
-            <h2 id="target-book-title">Book Title Here</h2>
-            <p id="target-book-meta">Accession: ---</p>
-            
-            <div class="shelf-container">
-                <div class="shelf-label">SHELF <span id="current-shelf-number">X</span></div>
-                <div class="shelf-grid">
-                    <div class="slot" data-slot="1">1</div>
-                    <div class="slot" data-slot="5">5</div>
-                    <div class="slot" data-slot="2">2</div>
-                    <div class="slot" data-slot="6">6</div>
-                    <div class="slot" data-slot="3">3</div>
-                    <div class="slot" data-slot="7">7</div>
-                    <div class="slot" data-slot="4">4</div>
-                    <div class="slot" data-slot="8">8</div>
+        <div class="layout-grid">
+            <section class="shelf-card">
+                <div class="shelf-title-bar">
+                    <h2>Shelf 1 Layout</h2>
+                    <span id="statusBadge" class="status-badge">All Rows</span>
                 </div>
-            </div>
-        </section>
+
+                <div class="virtual-bookshelf">
+                    <div class="shelf-row" data-row="8"><span class="row-lbl">Row 8</span><span class="range-lbl">#319 - #354</span></div>
+                    <div class="shelf-row" data-row="7"><span class="row-lbl">Row 7</span><span class="range-lbl">#268 - #318</span></div>
+                    <div class="shelf-row" data-row="6"><span class="row-lbl">Row 6</span><span class="range-lbl">#235 - #267</span></div>
+                    <div class="shelf-row" data-row="5"><span class="row-lbl">Row 5</span><span class="range-lbl">#177 - #234</span></div>
+                    <div class="shelf-row" data-row="4"><span class="row-lbl">Row 4</span><span class="range-lbl">#132 - #176</span></div>
+                    <div class="shelf-row" data-row="3"><span class="row-lbl">Row 3</span><span class="range-lbl">#85 - #131</span></div>
+                    <div class="shelf-row" data-row="2"><span class="row-lbl">Row 2</span><span class="range-lbl">#61 - #84</span></div>
+                    <div class="shelf-row" data-row="1"><span class="row-lbl">Row 1</span><span class="range-lbl">#1 - #60</span></div>
+                </div>
+            </section>
+
+            <section class="meta-card">
+                <div id="defaultPanel" class="info-panel">
+                    <h3>System Ready</h3>
+                    <p>Enter a query above or scan a shelf QR code to instantly track physical book positions.</p>
+                </div>
+
+                <div id="resultsPanel" class="info-panel hidden">
+                    <h3>Search Results</h3>
+                    <div id="resultsList" class="results-list"></div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script src="app.js"></script>
