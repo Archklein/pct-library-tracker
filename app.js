@@ -426,16 +426,30 @@ const shelf1Data = {
     354: { title: "Time Travel: A Glimpse to Philippine History", author: "History Research Group / 2015", accession: "2949" }
 };
 
-// 3. Shelf 2 placeholder data (1 book placeholder per row)
+// Shelf 2 Data Placeholder
 const shelf2Data = {
-    1: { title: "Shelf 2 - Row 1 Book Placeholder", author: "Pending Author / 2026", accession: "0001" },
-    2: { title: "Shelf 2 - Row 2 Book Placeholder", author: "Pending Author / 2026", accession: "0002" },
-    3: { title: "Shelf 2 - Row 3 Book Placeholder", author: "Pending Author / 2026", accession: "0003" },
-    4: { title: "Shelf 2 - Row 4 Book Placeholder", author: "Pending Author / 2026", accession: "0004" }
+    1: { title: "Shelf 2 - Row 1 Book Placeholder", author: "Pending Author / 2026", accession: "0001" }
 };
 
-// 4. Point the application's engine to the correct shelf configuration
-const baseInventoryData = currentShelf === '2' ? shelf2Data : shelf1Data;
+// Shelf 3 Data Placeholder
+const shelf3Data = {
+    1: { title: "Shelf 3 - Row 1 Book Placeholder", author: "Pending Author / 2026", accession: "0001" }
+};
+
+// Shelf 4 Data Placeholder
+const shelf4Data = {
+    1: { title: "Shelf 4 - Row 1 Book Placeholder", author: "Pending Author / 2026", accession: "0001" }
+};
+
+const shelfRegistry = {
+    '1': shelf1Data,
+    '2': shelf2Data,
+    '3': shelf3Data,
+    '4': shelf4Data
+    // Just add '5': shelf5Data, '6': shelf6Data here as you create them!
+};
+
+const baseInventoryData = shelfRegistry[currentShelf] || shelf1Data;
 
 // Auto-Compiler Pipeline Engine to safely seed rows 2 through 353 cleanly 
 const booksDatabase = [];

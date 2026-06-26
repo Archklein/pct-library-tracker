@@ -38,6 +38,7 @@ body {
 .main-header {
     text-align: center;
     margin-bottom: 0.5rem;
+    
 }
 
 .main-header h1 {
@@ -51,6 +52,7 @@ body {
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-top: 0.25rem;
+    color:#cf0f08;
 }
 
 /* Minimalist Search Box */
@@ -217,7 +219,7 @@ body {
 }
 
 .result-item:hover {
-    background-color: #eef1dd;
+    background-color: #d1e65d;
 }
 
 .result-item h4 {
@@ -250,4 +252,8 @@ body {
     .layout-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.subtitle {
+    color: #a16207;
 }
