@@ -1,13 +1,6 @@
-/**
- * PCT Library Locator System Engine - Shelf 1 Clean Architecture
- * Complete Data Integrity Model for entries #1 through #354
- */
-
-// 1. Detect which shelf parameter is active (?shelf=1 or ?shelf=2)
 const urlParams = new URLSearchParams(window.location.search);
-const currentShelf = urlParams.get('shelf') || '1'; // Defaults to 1 if no parameter exists
+const currentShelf = urlParams.get('shelf') || '1';
 
-// 2. Dynamically update the header text on the page
 window.addEventListener('DOMContentLoaded', () => {
     const shelfTitle = document.getElementById('shelf-title');
     if (shelfTitle) {
@@ -15,7 +8,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Core Range Structural Boundaries Specified by User Mapping
 const ROW_BOUNDARIES = [
     { row: 1, start: 1, end: 60 },
     { row: 2, start: 61, end: 84 },
@@ -27,7 +19,6 @@ const ROW_BOUNDARIES = [
     { row: 8, start: 319, end: 354 }
 ];
 
-// Structural Range Target Logic
 function locateRowNumber(indexId) {
     for (const range of ROW_BOUNDARIES) {
         if (indexId >= range.start && indexId <= range.end) {
@@ -37,11 +28,7 @@ function locateRowNumber(indexId) {
     return null;
 }
 
-// Complete Inventory Mapped Array Matrix 
 const shelf1Data = {
-    // ==========================================
-    // ROW 1: Books #1 to #60 (Psychology, Humanities, Sociology)
-    // ==========================================
     1: { title: "Methods of Research", author: "Merle E. Salmorin, M.A. / 2006", accession: "0487" },
     2: { title: "Introduction to Humanities (Arts and Literature)", author: "Josefina V. Estolas et al. / 2011", accession: "3288" },
     3: { title: "Scripture Confessions for MOMS", author: "Shepherd Books / 2005", accession: "2261, 2262, 2263, 2264, 2265" },
@@ -103,9 +90,6 @@ const shelf1Data = {
     59: { title: "Dynamics of Groups and Organizations", author: "Federico L. Casas / 1984", accession: "1059" },
     60: { title: "SOCIOLOGY: Focus on Filipino Society and Culture", author: "Manuel B. Garcia et al. / 1984", accession: "0243, 0244, 0245, 0246, 0247, 1714, 0495" },
 
-    // ==========================================
-    // ROW 2: Books #61 to #84 (General Sociology & Legal / Contracts)
-    // ==========================================
     61: { title: "GENERAL SOCIOLOGY: Focus on the Philippines 2nd Ed.", author: "Isabel S. Panopio et al. / 1978", accession: "2363, 2503, 2558" },
     62: { title: "Introduction to Law and the Philippine Legal System", author: "Rolando A. Suarez / 2009", accession: "1062" },
     63: { title: "The Civil Code of the Philippines Explained", author: "Edgardo L. Paras / 2002", accession: "1063" },
@@ -131,9 +115,6 @@ const shelf1Data = {
     83: { title: "The Law on Torts and Damages Review", author: "Edgardo L. Paras / 1990", accession: "1083" },
     84: { title: "Obligation and Contracts 1985 Ed.", author: "Justo P. Torres, Jr. / 1985", accession: "0214, 1810" },
 
-    // ==========================================
-    // ROW 3: Books #85 to #131 (Microeconomics, Filipino Disiplina Literature)
-    // ==========================================
     85: { title: "Introductory Microeconomics 3RD Ed.", author: "Cristibal M. Pagoso et al. / 2006", accession: "3186" },
     86: { title: "Introductory Macroeconomics Structure", author: "Cristobal M. Pagoso / 2004", accession: "1086" },
     87: { title: "Principles of Economics: Local Context", author: "Bernardo M. Villegas / 2001", accession: "1087" },
@@ -182,9 +163,6 @@ const shelf1Data = {
     130: { title: "Sining ng Pakikipagtalastasan", author: "Zenaida S. Mendoza / 1999", accession: "1130" },
     131: { title: "Pagbasa at Pagsulat sa ibat-ibang Disiplina at Antas Tersaya", author: "Zenaida Mendoza & Marcela L. Romero / 2007", accession: "1272, 1273, 1274, 1275, 1276" },
 
-    // ==========================================
-    // ROW 4: Books #132 to #176 (Teacher Manuals, Communication, Local History)
-    // ==========================================
     132: { title: "Teacher's Manual Communication Arts and Skills", author: "Rosario P. Nem Singh / 2004", accession: "1720" },
     133: { title: "Teaching Strategies for Communication Arts", author: "Rosario P. Nem Singh / 2001", accession: "1133" },
     134: { title: "Principles of Teaching and Learning Manual", author: "Gaudencio V. Aquino / 2003", accession: "1134" },
@@ -231,9 +209,6 @@ const shelf1Data = {
     175: { title: "Tribal Laws and Conflict Resolution Systems", author: "NCIP Research Board / 2005", accession: "1175" },
     176: { title: "Datu Bago and the Kingdoms of SarangINF and IYO", author: "Local History / Historical Monograph", accession: "3209" },
 
-    // ==========================================
-    // ROW 5: Books #177 to #234 (HR, Management, Economics, Money & Banking)
-    // ==========================================
     177: { title: "Personnel and Human Resources Management", author: "Management Textbook Series", accession: "3063" },
     178: { title: "Principles of Management and Organization", author: "Conrado M. Regala / 2004", accession: "1178" },
     179: { title: "Human Behavior in Organizations (HBO)", author: "Roberto G. Medina / 2006", accession: "1179" },
@@ -293,9 +268,6 @@ const shelf1Data = {
     233: { title: "Customer Relations in Commercial Banks", author: "HR Management Board / 2005", accession: "1233" },
     234: { title: "Essentials of Money Credit and Banking Updated Ed.", author: "Banking Textbook Series", accession: "3143" },
 
-    // ==========================================
-    // ROW 6: Books #235 to #267 (Money Credit & Banking, Corporate Approaches)
-    // ==========================================
     235: { title: "Money Credit & Banking 4th Ed.", author: "Economics Group", accession: "1548" },
     236: { title: "Advanced Monetary Economics Theory", author: "Economics Group / 2005", accession: "1236" },
     237: { title: "History of Banking in the Philippines", author: "BSP Educational Board / 1994", accession: "1237" },
@@ -330,9 +302,6 @@ const shelf1Data = {
     266: { title: "Customs Administration and Tariff Codes", author: "SEC Legal Board / 2004", accession: "1266" },
     267: { title: "Partnership and Corporation Simplified Procedural Approach", author: "Corporate Law Series", accession: "2930" },
 
-    // ==========================================
-    // ROW 7: Books #268 to #318 (Modern Business & College English)
-    // ==========================================
     268: { title: "Modern Business", author: "Business Administration Publishing", accession: "0259" },
     269: { title: "Introduction to Business Administration", author: "Business Administration Publishing / 2003", accession: "1269" },
     270: { title: "Business Mathematics Coursebook", author: "Mathematics Series / 2006", accession: "1270" },
@@ -385,9 +354,6 @@ const shelf1Data = {
     317: { title: "Interpersonal Communication Skills Course", author: "Language Education Group / 2002", accession: "1317" },
     318: { title: "Better English for College", author: "Language Education Group", accession: "0471" },
 
-    // ==========================================
-    // ROW 8: Books #319 to #354 (Consumer Math, Literature, Public Speaking, History)
-    // ==========================================
     319: { title: "Consumer Mathematics Toward a Better Filipino Consumer", author: "Mathematics Series", accession: "2959" },
     320: { title: "Basic Mathematics for College Students", author: "Mathematics Series / 2002", accession: "1320" },
     321: { title: "College Algebra with Applications", author: "Mathematics Series / 2005", accession: "1321" },
@@ -451,14 +417,12 @@ const shelfRegistry = {
 
 const baseInventoryData = shelfRegistry[currentShelf] || shelf1Data;
 
-// Auto-Compiler Pipeline Engine to safely seed rows 2 through 353 cleanly 
 const booksDatabase = [];
 for (let i = 1; i <= 354; i++) {
     const calculatedRow = locateRowNumber(i);
     if (baseInventoryData[i]) {
         booksDatabase.push({ id: i, row: calculatedRow, ...baseInventoryData[i] });
     } else {
-        // Safe-fallback compiler loops to ensure missing numbers remain fully structural and traceable
         booksDatabase.push({
             id: i,
             title: `Library Book Asset #${i}`,
@@ -469,7 +433,6 @@ for (let i = 1; i <= 354; i++) {
     }
 }
 
-// UI Controllers
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const clearBtn = document.getElementById("clearBtn");
@@ -478,10 +441,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultsList = document.getElementById("resultsList");
     const statusBadge = document.getElementById("statusBadge");
 
-    // Initialize Parameter Router on Initialization
     parseURLRoutes();
 
-    // Input Search Handling
     searchInput.addEventListener("input", (e) => {
         const query = e.target.value.trim();
         if (query.length > 0) {
@@ -504,7 +465,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let queryNumber = parseInt(cleanQuery, 10);
         let matches = [];
 
-        // Dual-processing logic engine (Checks for direct sequence position indices or string titles)
         if (!isNaN(queryNumber) && queryNumber >= 1 && queryNumber <= 354) {
             matches = booksDatabase.filter(book => book.id === queryNumber);
         } else {
@@ -534,7 +494,6 @@ document.addEventListener("DOMContentLoaded", () => {
         resultsPanel.classList.remove("hidden");
         statusBadge.innerText = `${matches.length} Match(es)`;
 
-        // Automatically target/highlight the first item in matches
         const activeSelection = matches[0];
         highlightTargetedRow(activeSelection.row);
 
@@ -574,7 +533,6 @@ document.addEventListener("DOMContentLoaded", () => {
         defaultPanel.classList.remove("hidden");
     }
 
-    // Direct dynamic parameter deep linking engine (useful for specific row QR generation setups)
     function parseURLRoutes() {
         const params = new URLSearchParams(window.location.search);
         const targetShelf = params.get("shelf");
